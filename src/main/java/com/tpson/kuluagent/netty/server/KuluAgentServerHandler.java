@@ -24,12 +24,11 @@ import java.util.concurrent.atomic.AtomicInteger;
  * Created by Zhangka in 2018/04/20
  */
 public abstract class KuluAgentServerHandler extends ChannelInboundHandlerAdapter {
-//    public static final int BASE_LENGTH = 42;
-    public static final int MAX_BUFFER_SIZE = 256;
+    protected static final int MAX_BUFFER_SIZE = 256;
     protected final AttributeKey<Channel> k = AttributeKey.valueOf("right");
-    private static final Logger LOGGER = LoggerFactory.getLogger(KuluAgentServerHandler.class);
     protected final AttributeKey<ByteBuf> b = AttributeKey.valueOf("buffers");
     private final AtomicInteger connections = new AtomicInteger(0);
+    private static final Logger LOGGER = LoggerFactory.getLogger(KuluAgentServerHandler.class);
 
     @Autowired
     WatchServerConfig config;
